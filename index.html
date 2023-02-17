@@ -7,19 +7,25 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Code Quiz</title>
 </head>
-<body>
+<body class="card">
     <div>
-        <a id="results">View High Scores></a>
-        <h1 id="timer" style="text-align: end;"></h1>
+        <div id="results">
+            <h1>View High Scores</h1>
+        </div>
+
+        <div>
+            <h1>Time:<span class="timer"> 75</span></h1>
+        </div>
     </div>
 
-    <div >
+    <div class="start-pg">
         <h2>Coding Quiz Challenge</h1>
         <p>
             Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
         </p>
         <button id="start-button">Start Quiz</button>
     </div>
+    
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
