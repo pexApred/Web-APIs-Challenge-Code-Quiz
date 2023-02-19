@@ -1,34 +1,37 @@
-// Start Button Function correctly filler
+// Variable links to id/class
 var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
-const Questions = [ 
+
+// Array of objects: Quiz Questions
+const questions = [ 
 {
     question: "Commonly used data types DO NOT include:",
     choices:  ["strings, booleans, alerts, numbers"],
     correctAnswer: "alerts"
 },
 {
-    question: "Commonly used data types DO NOT include:",
-    choices:  ["strings, booleans, alerts, numbers"],
-    correctAnswer: "alerts"
+    question: "The condition in an if / else statement is enclosed with ________.",
+    choices:  ["quotes, curly brackets, parenthesis, square brackets"],
+    correctAnswer: "parenthesis"
 },
 {
-    question: "Commonly used data types DO NOT include:",
-    choices:  ["strings, booleans, alerts, numbers"],
-    correctAnswer: "alerts"
+    question: "Arrays in JavaScript can be used to store ________.",
+    choices:  ["numbers and strings, other arrays, booleans, all of the above"],
+    correctAnswer: "all of the above"
 },
 {
-    question: "Commonly used data types DO NOT include:",
-    choices:  ["strings, booleans, alerts, numbers"],
-    correctAnswer: "alerts"
+    question: "String values must be enclosed within ________ when being assigned to variables",
+    choices:  ["commas, curly brackets, quotes,parenthesis"],
+    correctAnswer: "quotes"
 },
 {
-    question: "Commonly used data types DO NOT include:",
-    choices:  ["strings, booleans, alerts, numbers"],
-    correctAnswer: "alerts"
+    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    choices:  ["JavaScript, terminal/bash, for loops, console.log"],
+    correctAnswer: "console.log"
 },
 ];
 
+// Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
 startButton.addEventListener("click", function() {
     var newPage = document.querySelector(".start-pg");
     if (newPage.style.display === "none") {
@@ -38,13 +41,13 @@ startButton.addEventListener("click", function() {
         newPage.style.display = "none";
     };
 
-    // var questions = document.querySelector(".questions");
-    // if (questions.style.display === "block") {
-    //     questions.style.display = "none";
-    
-    // } else {
-    //     questions.style.display = "block";
-    // }
+    console.log(questions);
 
 });
 
+
+// Timer function
+
+// Input initials / Highscore page
+
+// 
