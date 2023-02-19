@@ -11,10 +11,11 @@
 <body class="container">
     <!-- High Scores & Timer Container -->
     <div class="hs-timer">
+        <!-- High Scores -->
         <div id="hs">
             <h1>View High Scores</h1>
         </div>
-
+        <!-- Timer -->
         <div>
             <h1>Time:<span class="timer"> 75</span></h1>
         </div>
@@ -30,14 +31,17 @@
             <button type="button" id="start-button">Start Quiz</button>
         </div>
         <!-- Quiz Container -->
-        <div id="quiz">
+        <div id="quiz" style="display : none;">
             <div class="questions"></div>
-            <div class="answers"></div>
             <div class="check-answers">
                 <h3 class="results"></h3>
             </div>
         </div>
+        <!-- Score Container -->
+        <div class="score">
+        
+        </div>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/quiz.js"></script>
 </body>
 </html>

@@ -1,7 +1,10 @@
 // Variable links to id/class
 var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
+var getResult = document.querySelector(".check-answers")
 
+var score = 0;
+var currentQuestionIndex = 0;
 // Array of objects: Quiz Questions
 const questions = [ 
 {
@@ -33,21 +36,11 @@ const questions = [
 
 // Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
 startButton.addEventListener("click", function() {
-    var newPage = document.querySelector(".start-pg");
-    if (newPage.style.display === "none") {
-        newPage.style.display = "block";
-    
-    } else {
-        newPage.style.display = "none";
-    };
-
-    console.log(questions);
-
+    var startPage = document.querySelector(".start-pg");
+    startPage.style.display ="none";
+    quizContainer.style.display ="block";
 });
-
 
 // Timer function
 
 // Input initials / Highscore page
-
-// 
