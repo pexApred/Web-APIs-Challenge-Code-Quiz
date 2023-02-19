@@ -11,27 +11,27 @@ let currentTime = timeLeft.textContent;
 const questions = [ 
     {
         question: "Commonly used data types DO NOT include:",
-        choices:  ["strings, booleans, alerts, numbers"],
+        choices:  ['strings', 'booleans', 'alerts', 'numbers'],
         correctAnswer: "alerts"
     },
     {
         question: "The condition in an if / else statement is enclosed with ________.",
-        choices:  ["quotes, curly brackets, parenthesis, square brackets"],
+        choices:  ['quotes', 'curly brackets', 'parenthesis', 'square brackets'],
         correctAnswer: "parenthesis"
     },
     {
         question: "Arrays in JavaScript can be used to store ________.",
-        choices:  ["numbers and strings, other arrays, booleans, all of the above"],
+        choices:  ['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
         correctAnswer: "all of the above"
     },
     {
         question: "String values must be enclosed within ________ when being assigned to variables",
-        choices:  ["commas, curly brackets, quotes,parenthesis"],
+        choices:  ['commas', 'curly brackets', 'quotes', 'parenthesis'],
         correctAnswer: "quotes"
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices:  ["JavaScript, terminal/bash, for loops, console.log"],
+        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
         correctAnswer: "console.log"
     },
 ];
@@ -52,7 +52,6 @@ startButton.addEventListener("click", function() {
 
         if (currentTime === 0) {
             clearInterval(intervalId);
-            alert("GAME OVER! Your final score is + result");
         }
     }
 });
@@ -66,9 +65,17 @@ function showCurrentQuestion() {
     questionElement.innerHTML = currentQuestion.question;
 
     console.log(questions[0]);
-
     // create for loops for questions and answers
+    for (let i = 0; i < questions.length; i++) {
+        const currentQuestion = questions[i].question;
+        const currentChoices = questions[i].choices;
 
+        for (let j = 0; j < currentChoices.length; j++) {
+            const choiceElement = document.createElement("li");
+            choiceElement.textContent =( j + 1 ) + "." + currentChoices[j];
+            questionsContainer.appendChild(questionElement);
+        };
+    };
 };
 
 // Input initials / Highscore page
