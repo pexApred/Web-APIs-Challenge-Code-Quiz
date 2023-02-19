@@ -1,10 +1,12 @@
 // Variable links to id/class
 var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
-var getResult = document.querySelector(".check-answers")
+var getResult = document.querySelector(".check-answers");
+var timeLeft = document.querySelector("#timer");
 
 var score = 0;
 var currentQuestionIndex = 0;
+let currentTime = timeLeft.textContent;
 // Array of objects: Quiz Questions
 const questions = [ 
 {
@@ -40,6 +42,7 @@ startButton.addEventListener("click", function() {
     startPage.style.display ="none";
     quizContainer.style.display ="block";
     showCurrentQuestion();
+    
 });
 
 // Write showCurrentQuestion() function
@@ -54,8 +57,21 @@ function showCurrentQuestion() {
 
     // create for loops for questions and answers
 
-}
+};
+
+let intervalId;
 
 // Timer function
+function startTimer () {
+    currentTime--;
+    timeLeft.textContent = currentTime;
+
+    if (currentTime === 0) {
+        clearInterval(intervalId);
+        alert("GAME OVER! Your final score is + result");
+    };
+};
+intervalId = setInterval(startTimer, 1000);
+
 
 // Input initials / Highscore page
