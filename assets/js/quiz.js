@@ -44,15 +44,16 @@ startButton.addEventListener("click", function() {
 
 // Write showCurrentQuestion() function
 function showCurrentQuestion() {
-    const questionsContainer = document.getElementsByClassName("questions");
+    const questionsContainer = document.getElementsByClassName("questions")[0];
     const currentQuestion = questions[currentQuestionIndex];
 
     const questionElement = document.createElement("div");
     questionElement.innerHTML = currentQuestion.question;
 
-    console.log(questions);
+    console.log(questions[0]);
 
     // create for loops for questions and answers
+
 }
 
 // Timer function
