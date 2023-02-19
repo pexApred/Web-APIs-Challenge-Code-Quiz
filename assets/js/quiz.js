@@ -39,7 +39,21 @@ startButton.addEventListener("click", function() {
     var startPage = document.querySelector(".start-pg");
     startPage.style.display ="none";
     quizContainer.style.display ="block";
+    showCurrentQuestion();
 });
+
+// Write showCurrentQuestion() function
+function showCurrentQuestion() {
+    const questionsContainer = document.getElementsByClassName("questions");
+    const currentQuestion = questions[currentQuestionIndex];
+
+    const questionElement = document.createElement("div");
+    questionElement.innerHTML = currentQuestion.question;
+
+    console.log(questions);
+
+    // create for loops for questions and answers
+}
 
 // Timer function
 
