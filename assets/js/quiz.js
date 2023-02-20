@@ -6,6 +6,7 @@ var timeLeft = document.querySelector("#timer");
 
 var score = 0;
 var currentQuestionIndex = 0;
+
 let currentTime = timeLeft.textContent;
 // Array of objects: Quiz Questions
 const questions = [ 
@@ -64,18 +65,24 @@ function showCurrentQuestion() {
     const questionElement = document.createElement("div");
     questionElement.innerHTML = currentQuestion.question;
 
-    console.log(questions[0]);
+    const currentChoices = currentQuestion.choices;
     // create for loops for questions and answers
-    for (let i = 0; i < questions.length; i++) {
-        const currentQuestion = questions[i].question;
-        const currentChoices = questions[i].choices;
+    for (let i = 0; i < currentChoices.length; i++) {
+        const choiceElement = document.createElement("li");
+        choiceElement.textContent = ( i + 1 ) + ". " + currentChoices[i];
+        questionElement.appendChild(choiceElement);
 
-        for (let j = 0; j < currentChoices.length; j++) {
-            const choiceElement = document.createElement("li");
-            choiceElement.textContent =( j + 1 ) + "." + currentChoices[j];
-            questionsContainer.appendChild(questionElement);
-        };
-    };
+        
+    }
+
+    // for (let i = 0; i < questions.length; i++) {
+    //     const currentChoices = questions[i].choices;
+
+    //     for (let j = 0; j < currentChoices.length; j++) {
+
+    //     };
+    // };
+    questionsContainer.appendChild(questionElement);
 };
 
 // Input initials / Highscore page
