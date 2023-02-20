@@ -2,9 +2,12 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-li {
-    list-style: none;
-    margin-left: 5%;
+.answer-btn {
+    display: block;
+    font-size: 32px;
+    margin: 1%;
+    padding: 1%;
+    
 }
 
 .container {
@@ -25,7 +28,7 @@ li {
     font-size: xx-large;
 }
 
-#score {
+#current-score {
     display: flex;
     justify-content: center;
     font-size: xx-large;

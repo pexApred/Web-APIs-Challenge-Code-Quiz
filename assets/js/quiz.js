@@ -4,6 +4,7 @@ var quizContainer = document.getElementById("quiz");
 var getResult = document.querySelector(".check-answers");
 var timeLeft = document.querySelector("#timer");
 
+
 var score = 0;
 var currentQuestionIndex = 0;
 
@@ -37,15 +38,26 @@ const questions = [
     },
 ];
 
+// Answer Button handling
+function handleAnswers () {
+    console.log("Hello World!");
+}
+
 // Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
 startButton.addEventListener("click", function() {
     var startPage = document.querySelector(".start-pg");
     startPage.style.display ="none";
     quizContainer.style.display ="block";
     showCurrentQuestion();
-    
-    let intervalId = setInterval(startTimer, 1000);
 
+    var allAnswerBtns = document.querySelectorAll(".answer-btn");
+    console.log(allAnswerBtns);
+
+    for (let i = 0; i < allAnswerBtns.length; i++) {
+        allAnswerBtns[i].addEventListener("click", handleAnswers)
+    }
+
+    let intervalId = setInterval(startTimer, 1000);
     // Timer function
     function startTimer () {
         currentTime--;
@@ -68,22 +80,16 @@ function showCurrentQuestion() {
     const currentChoices = currentQuestion.choices;
     // create for loops for questions and answers
     for (let i = 0; i < currentChoices.length; i++) {
-        const choiceElement = document.createElement("li");
-        
+        const choiceElement = document.createElement("button");
+        choiceElement.classList.add("answer-btn");
         choiceElement.textContent = ( i + 1 ) + ". " + currentChoices[i];
         questionElement.appendChild(choiceElement);
 
-        
     }
 
-    // for (let i = 0; i < questions.length; i++) {
-    //     const currentChoices = questions[i].choices;
-
-    //     for (let j = 0; j < currentChoices.length; j++) {
-
-    //     };
-    // };
     questionsContainer.appendChild(questionElement);
 };
+
+
 
 // Input initials / Highscore page
