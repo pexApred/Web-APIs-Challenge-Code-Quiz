@@ -4,7 +4,7 @@ var quizContainer = document.getElementById("quiz");
 var getResult = document.querySelector(".check-answers");
 var timeLeft = document.querySelector("#timer");
 
-
+var intervalId;
 var score = 0;
 var currentQuestionIndex = 0;
 
@@ -45,7 +45,7 @@ startButton.addEventListener("click", function() {
     quizContainer.style.display ="block";
     showCurrentQuestion();
 
-    let intervalId = setInterval(startTimer, 1000);
+    intervalId = setInterval(startTimer, 1000);
     // Timer function
     function startTimer () {
         currentTime--;
@@ -80,7 +80,7 @@ function showCurrentQuestion() {
             } else {
                 currentTime -= 10; // penalty for incorrect answer
                 timeLeft.textContent = currentTime;
-            }
+            } 
 
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
@@ -97,7 +97,12 @@ function showCurrentQuestion() {
     questionsContainer.appendChild(questionElement);
 };
 
-// create endgame() function
+// create endQuiz() function
+function endQuiz() {
+    clearInterval(intervalId);
+    quizContainer.style.display = "none";
+    getResult.style.display = "block";
+    getResult.innerHTML = "Game Over! You scored " + score + ".";
 
-
-// Input initials / Highscore page
+    // Add code for Input initials / Highscore page
+}
