@@ -1,0 +1,32 @@
+* {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+li {
+    list-style: none;
+    margin-left: 5%;
+}
+
+.container {
+    display: block;
+}
+
+.hs-timer {
+    display: flex;
+    justify-content: space-between;
+    font-size: medium;
+    margin: 1%;
+}
+
+.questions {
+    display: flex;
+    justify-content: center;
+    padding:5%;
+    font-size: xx-large;
+}
+
+#score {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}

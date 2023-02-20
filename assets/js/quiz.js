@@ -69,6 +69,7 @@ function showCurrentQuestion() {
     // create for loops for questions and answers
     for (let i = 0; i < currentChoices.length; i++) {
         const choiceElement = document.createElement("li");
+        
         choiceElement.textContent = ( i + 1 ) + ". " + currentChoices[i];
         questionElement.appendChild(choiceElement);
 
