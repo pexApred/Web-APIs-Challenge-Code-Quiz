@@ -1,7 +1,7 @@
 // Variable links to id/class
 var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
-var getResult = document.querySelector(".highscore-pg");
+var scoreContainer = document.querySelector(".highscore-pg");
 var timeLeft = document.querySelector("#timer");
 
 var intervalId;
@@ -111,10 +111,14 @@ function showCurrentQuestion() {
 function endQuiz() {
     clearInterval(intervalId);
     quizContainer.style.display = "none";
-    getResult.style.display = "block";
-    getResult.innerHTML = "Game Over! You scored " + score + ".";
+    scoreContainer.style.display = "block";
+    scoreContainer.innerHTML = "Game Over! You scored " + score + ".";
 
-    
+    // get user's initials
+    const initialsInput = document.getElementById("initials");
+    const intials = initialsInput.value;
+
+    // store score and initials in local storage
 
     // resetQuiz();
 
