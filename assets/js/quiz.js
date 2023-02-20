@@ -2,6 +2,7 @@
 var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
 var scoreContainer = document.querySelector(".highscore-pg");
+
 var timeLeft = document.querySelector("#timer");
 
 var intervalId;
@@ -36,6 +37,21 @@ const questions = [
         choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
         correctAnswer: "console.log"
     },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
+        correctAnswer: "console.log"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
+        correctAnswer: "console.log"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
+        correctAnswer: "console.log"
+    },
 ];
 
 // Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
@@ -46,12 +62,16 @@ startButton.addEventListener("click", function() {
     showCurrentQuestion();
 
     intervalId = setInterval(startTimer, 1000);
+
     // Timer function
     function startTimer () {
         currentTime--;
         timeLeft.textContent = currentTime;
 
         if (currentTime === 0) {
+            clearInterval(intervalId);
+            endQuiz();
+        } else if (currentQuestionIndex === questions.length) {
             clearInterval(intervalId);
             endQuiz();
         }
@@ -77,14 +97,13 @@ function showCurrentQuestion() {
         choiceElement.addEventListener("click", function() {
             if (currentChoices[i] === currentQuestion.correctAnswer) {
                 score++;
-            } else {
-                if (currentTime >= 10) {
+            }   else if (currentTime >= 10) {
                     currentTime -= 10; // penalty for incorrect answer
-                } else {
-                    currentTime == 0; // set to 0 if penalty would make it negative
-                }
-                timeLeft.textContent = currentTime;
-            } 
+                }   else {
+                        currentTime === 0; // set to 0 if penalty would make it negative
+                    }
+                
+            timeLeft.textContent = currentTime;
 
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
@@ -112,14 +131,21 @@ function endQuiz() {
     clearInterval(intervalId);
     quizContainer.style.display = "none";
     scoreContainer.style.display = "block";
-    scoreContainer.innerHTML = "Game Over! You scored " + score + ".";
+    scoreContainer.innerHTML = "Game Over! You scored " + (score + currentTime) +  ".";
 
     // get user's initials
     const initialsInput = document.getElementById("initials");
-    const intials = initialsInput.value;
+    const initials = initialsInput.value;
 
     // store score and initials in local storage
+    const highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+    highscores.push({initials, score});
+    localStorage.setItem('highscores', JSON.stringify(highscores));
 
+    score = 0;
+    currentQuestionIndex = 0;
+
+    initialsInput.value = "";
     // resetQuiz();
 
     // Add code for Input initials / Highscore page
