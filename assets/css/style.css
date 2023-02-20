@@ -7,11 +7,20 @@
     font-size: 32px;
     margin: 1%;
     padding: 1%;
+}
+
+#hs {
     
 }
 
 .container {
     display: block;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .hs-timer {

@@ -38,24 +38,12 @@ const questions = [
     },
 ];
 
-// Answer Button handling
-function handleAnswers () {
-    console.log("Hello World!");
-}
-
 // Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
 startButton.addEventListener("click", function() {
     var startPage = document.querySelector(".start-pg");
     startPage.style.display ="none";
     quizContainer.style.display ="block";
     showCurrentQuestion();
-
-    var allAnswerBtns = document.querySelectorAll(".answer-btn");
-    console.log(allAnswerBtns);
-
-    for (let i = 0; i < allAnswerBtns.length; i++) {
-        allAnswerBtns[i].addEventListener("click", handleAnswers)
-    }
 
     let intervalId = setInterval(startTimer, 1000);
     // Timer function
@@ -65,6 +53,7 @@ startButton.addEventListener("click", function() {
 
         if (currentTime === 0) {
             clearInterval(intervalId);
+            endQuiz();
         }
     }
 });
@@ -85,11 +74,30 @@ function showCurrentQuestion() {
         choiceElement.textContent = ( i + 1 ) + ". " + currentChoices[i];
         questionElement.appendChild(choiceElement);
 
-    }
+        choiceElement.addEventListener("click", function() {
+            if (currentChoices[i] === currentQuestion.correctAnswer) {
+                score++;
+            } else {
+                currentTime -= 10; // penalty for incorrect answer
+                timeLeft.textContent = currentTime;
+            }
 
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                // display next question if there are more questions
+                questionsContainer.innerHTML = "";
+                showCurrentQuestion();
+            } 
+            // else {
+            //     // display results if all questions have been answered
+            //     showResults();
+            // }
+        });
+    }
     questionsContainer.appendChild(questionElement);
 };
 
+// create endgame() function
 
 
 // Input initials / Highscore page
