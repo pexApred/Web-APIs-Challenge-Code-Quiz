@@ -5,10 +5,9 @@ Module-4-Challenge
 Fully coded the HTMLs, CSS, and JavaScript files to create a code quiz. Organized to follow semantic structure. Comments were added to ease the follow along for all or any other people who want to examine the code and for quick reference. This challenge offered up JavaScript and API (LocalStorage) practice. Reinforced topics learned in HTML, such as, class/id naming conventions, and its associated CSS selectors and properties, and referencing those in JavaScript. 
 
 ## Table of Contents
-- [Installation]
-- [Usage]
-- [Credits]
-- [License]
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
 ## Usage
 Informational webpage. Scroll for content. Click the topics in header to quickly navigate to the associated content on webpage.
