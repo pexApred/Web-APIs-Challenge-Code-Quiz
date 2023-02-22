@@ -26,9 +26,10 @@
 .hs-timer {
     display: flex;
     justify-content: space-between;
-    font-size: medium;
     margin: 1%;
 }
+
+
 
 .questions {
     display: flex;
