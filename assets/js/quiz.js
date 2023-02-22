@@ -126,25 +126,25 @@ function endQuiz() {
     quizContainer.style.display = "none";
     scoreContainer.style.display = "block";
     
-    
+    // Final score displaying correctly
     const finalScoreEl = document.getElementById('final-score');
     finalScoreEl.textContent = score + currentTime;
 
-    // get user's initials
-    const initialsInput = document.getElementById("initials");
-    const initials = initialsInput.value;
+    // get user's initials and push to local storage
+    const submitBtn = document.querySelector("#submit-score");
+    submitBtn.addEventListener("click", function() {
+        const initialsInput = document.getElementById("initials");
+        const initials = initialsInput.value;
 
+        // store score and initials in local storage
+        const highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+        highscores.push({initials, score: score + currentTime});
+        localStorage.setItem('highscores', JSON.stringify(highscores));
+    
+        score = 0;
+        currentQuestionIndex = 0;
 
-    // store score and initials in local storage
-    const highscores = JSON.parse(localStorage.getItem('highscores')) || [];
-    highscores.push({initials, score: score + currentTime});
-    localStorage.setItem('highscores', JSON.stringify(highscores));
-
-    score = 0;
-    currentQuestionIndex = 0;
-
-    initialsInput.value = "";
-    // resetQuiz();
-
-    // Add code for Input initials / Highscore page
+        initialsInput.value = "";
+        // resetQuiz();
+    });
 }
