@@ -93,6 +93,8 @@ function showCurrentQuestion() {
     questionElement.innerHTML = currentQuestion.question;
 
     const currentChoices = currentQuestion.choices;
+    const resultEl = document.createElement('div');
+    questionsContainer.appendChild(resultEl);
     // create for loops for questions and answers
     for (let i = 0; i < currentChoices.length; i++) {
         const choiceElement = document.createElement("button");
@@ -101,13 +103,19 @@ function showCurrentQuestion() {
         questionElement.appendChild(choiceElement);
 
         choiceElement.addEventListener("click", function() {
+            const resultText = document.createElement('p');
             if (currentChoices[i] === currentQuestion.correctAnswer) {
                 score++;
+                resultText.textContent = "Correct!";
             }   else if (currentTime >= 10) {
                     currentTime -= 10; // penalty for incorrect answer
+                    resultText.textContent = "Wrong!";
                 }   else {
                         currentTime = 0; // set to 0 if penalty would make it negative
                     }
+                    console.log(resultText);
+                    console.log(resultEl);
+                    resultEl.appendChild(resultText);
                 
             timeLeft.textContent = currentTime;
 
@@ -178,7 +186,7 @@ function viewHighScores() {
     highScores.sort((a,b) => b.score - a.score);
     highScores.forEach(function(score) {
         const li = document.createElement("li");
-        li.textContent = score.initials + " : " + score.score;
+        li.textContent = score.initials + "  -  " + score.score;
         hsList.appendChild(li);
     });
 }
