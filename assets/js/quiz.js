@@ -3,6 +3,7 @@ var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
 var scoreContainer = document.querySelector(".highscore-pg");
 var startPage = document.querySelector(".start-pg");
+var timer = document.querySelector(".time");
 
 var timeLeft = document.querySelector("#timer");
 
@@ -11,8 +12,14 @@ var score = 0;
 var currentQuestionIndex = 0;
 
 let currentTime = timeLeft.textContent;
+
 // Array of objects: Quiz Questions
 const questions = [ 
+    {
+        question: "JavaScript is an ________ language?",
+        choices:  ['Object-Oriented', 'Object-Based', 'Procedural', 'None of the above'],
+        correctAnswer: "Object-Oriented"
+    },
     {
         question: "Commonly used data types DO NOT include:",
         choices:  ['strings', 'booleans', 'alerts', 'numbers'],
@@ -34,6 +41,11 @@ const questions = [
         correctAnswer: "quotes"
     },
     {
+        question: "In JavaScript, which are three keywords used to declare variables?",
+        choices:  ['var, let, This', 'let, array, const', 'var, const, let', 'let, const, This'],
+        correctAnswer: "var, const, let"
+    },
+    {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         choices:  ['console.log', 'JavaScript', 'terminal/bash', 'for loops'],
         correctAnswer: "console.log"
@@ -43,17 +55,11 @@ const questions = [
         choices:  ['For Loop', 'Do Not Loop', 'While Loop', 'For...Of or In Loop'],
         correctAnswer: "Do Not Loop"
     },
-    {
-        question: "In JavaScript, which are three keywords used to declare variables?",
-        choices:  ['var, let, This', 'let, array, const', 'var, const, let', 'let, const, This'],
-        correctAnswer: "var, const, let"
-    },
-    {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
-        correctAnswer: "console.log"
-    },
 ];
+
+// Event listener for view-hs
+const viewHs = document.getElementById("view-hs");
+viewHs.addEventListener('click', viewHighScores);
 
 // Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
 startButton.addEventListener("click", function() {
@@ -100,7 +106,7 @@ function showCurrentQuestion() {
             }   else if (currentTime >= 10) {
                     currentTime -= 10; // penalty for incorrect answer
                 }   else {
-                        currentTime === 0; // set to 0 if penalty would make it negative
+                        currentTime = 0; // set to 0 if penalty would make it negative
                     }
                 
             timeLeft.textContent = currentTime;
@@ -133,15 +139,46 @@ function endQuiz() {
         const initials = initialsInput.value;
 
         // store score and initials in local storage
-        const highscores = JSON.parse(localStorage.getItem('highscores')) || [];
-        highscores.push({initials, score: score + currentTime});
-        localStorage.setItem('highscores', JSON.stringify(highscores));
+        highScores.push({initials, score: score + currentTime});
+        localStorage.setItem('High Scores', JSON.stringify(highScores));
     
         score = 0;
         currentQuestionIndex = 0;
 
         initialsInput.value = "";
         resetQuiz();
+    });
+}
+
+let highScores = [];
+if (localStorage.getItem ('High Scores')) {
+    highScores = JSON.parse(localStorage.getItem('High Scores'));
+};
+
+function viewHighScores() {
+    startPage.style.display ="none";
+    timer.style.display = "none";
+    scoreContainer.style.display = "block";
+
+    const hsList = document.getElementById('hs-list');
+    hsList.innerHTML = "";
+    
+    const backButton = document.createElement('button');
+    backButton.classList.add("back-btn");
+    backButton.textContent = "Go Back";
+    scoreContainer.appendChild(backButton);
+
+    backButton.addEventListener("click", function() {
+        resetQuiz();
+    });
+
+    const highScores = JSON.parse(localStorage.getItem('High Scores')) || [];
+
+    highScores.sort((a,b) => b.score - a.score);
+    highScores.forEach(function(score) {
+        const li = document.createElement("li");
+        li.textContent = score.initials + " - " + score.score;
+        hsList.appendChild(li);
     });
 }
 
