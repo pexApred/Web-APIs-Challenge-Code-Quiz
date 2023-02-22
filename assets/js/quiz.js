@@ -147,6 +147,5 @@ function endQuiz() {
 
 function resetQuiz() {
     clearInterval(intervalId);
-    startPage.style.display ="block";
-    scoreContainer.style.display = "none";
+    location.reload();
 }

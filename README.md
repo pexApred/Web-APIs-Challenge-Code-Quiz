@@ -12,8 +12,8 @@ Fully coded the HTMLs, CSS, and JavaScript files to create a code quiz. Organize
 ## Usage
 Informational webpage. Scroll for content. Click the topics in header to quickly navigate to the associated content on webpage.
 
-Webpage screenshot below:
-
+Quiz Game demo gif below:
+![Demo](./assets/images/04-web-apis-homework-demo.gif)
 
 ## Credits
 README.md template pulled from coding bootcamp github page: https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
