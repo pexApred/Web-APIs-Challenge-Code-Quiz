@@ -125,7 +125,10 @@ function endQuiz() {
     clearInterval(intervalId);
     quizContainer.style.display = "none";
     scoreContainer.style.display = "block";
-    scoreContainer.document = "Game Over! You scored " + (score + currentTime) +  ".";
+    
+    
+    const finalScoreEl = document.getElementById('final-score');
+    finalScoreEl.textContent = score + currentTime;
 
     // get user's initials
     const initialsInput = document.getElementById("initials");
@@ -134,7 +137,7 @@ function endQuiz() {
 
     // store score and initials in local storage
     const highscores = JSON.parse(localStorage.getItem('highscores')) || [];
-    highscores.push({initials, score});
+    highscores.push({initials, score: score + currentTime});
     localStorage.setItem('highscores', JSON.stringify(highscores));
 
     score = 0;
