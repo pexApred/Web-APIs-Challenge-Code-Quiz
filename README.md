@@ -10,9 +10,9 @@ Fully coded the HTMLs, CSS, and JavaScript files to create a code quiz. Organize
 - [License](#license)
 
 ## Usage
-Informational webpage. Scroll for content. Click the topics in header to quickly navigate to the associated content on webpage.
+Quiz Game for JavaScript. Click start quiz button to begin the game. When complete, a score will be generated and will ask for initials to add to high scores list. Get to the top of the list by having the highest score.
 
-Quiz Game demo gif below:
+Quiz Game demo gif:
 ![Demo](./assets/images/04-web-apis-homework-demo.gif)
 
 ## Credits
