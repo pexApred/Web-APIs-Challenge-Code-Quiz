@@ -2,6 +2,7 @@
 var startButton = document.querySelector("#start-button");
 var quizContainer = document.getElementById("quiz");
 var scoreContainer = document.querySelector(".highscore-pg");
+var startPage = document.querySelector(".start-pg");
 
 var timeLeft = document.querySelector("#timer");
 
@@ -56,7 +57,6 @@ const questions = [
 
 // Push button start: Removes start-pg, starts timer function, for loop questions, results of answers (correct or time penalty)
 startButton.addEventListener("click", function() {
-    var startPage = document.querySelector(".start-pg");
     startPage.style.display ="none";
     quizContainer.style.display ="block";
     showCurrentQuestion();
@@ -111,10 +111,6 @@ function showCurrentQuestion() {
                 questionsContainer.innerHTML = "";
                 showCurrentQuestion();
             } 
-            // else {
-            //     // display results if all questions have been answered
-            //     showResults();
-            // }
         });
     }
     questionsContainer.appendChild(questionElement);
@@ -145,6 +141,12 @@ function endQuiz() {
         currentQuestionIndex = 0;
 
         initialsInput.value = "";
-        // resetQuiz();
+        resetQuiz();
     });
+}
+
+function resetQuiz() {
+    clearInterval(intervalId);
+    startPage.style.display ="block";
+    scoreContainer.style.display = "none";
 }
