@@ -146,7 +146,7 @@ function endQuiz() {
         currentQuestionIndex = 0;
 
         initialsInput.value = "";
-        resetQuiz();
+        viewHighScores();
     });
 }
 
@@ -158,15 +158,16 @@ if (localStorage.getItem ('High Scores')) {
 function viewHighScores() {
     startPage.style.display ="none";
     timer.style.display = "none";
-    scoreContainer.style.display = "block";
+    scoreContainer.style.display = "none";
+    quizContainer.style.display = "none";
 
     const hsList = document.getElementById('hs-list');
     hsList.innerHTML = "";
     
     const backButton = document.createElement('button');
     backButton.classList.add("back-btn");
-    backButton.textContent = "Go Back";
-    scoreContainer.appendChild(backButton);
+    backButton.textContent = "Back to Start";
+    hsList.appendChild(backButton);
 
     backButton.addEventListener("click", function() {
         resetQuiz();
@@ -177,12 +178,11 @@ function viewHighScores() {
     highScores.sort((a,b) => b.score - a.score);
     highScores.forEach(function(score) {
         const li = document.createElement("li");
-        li.textContent = score.initials + " - " + score.score;
+        li.textContent = score.initials + " : " + score.score;
         hsList.appendChild(li);
     });
 }
 
 function resetQuiz() {
-    clearInterval(intervalId);
     location.reload();
 }
