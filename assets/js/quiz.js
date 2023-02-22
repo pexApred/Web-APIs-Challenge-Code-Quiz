@@ -34,18 +34,18 @@ const questions = [
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
+        choices:  ['console.log', 'JavaScript', 'terminal/bash', 'for loops'],
         correctAnswer: "console.log"
     },
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
-        correctAnswer: "console.log"
+        question: "JavaScript provides several ways to iterate over data structures. Which of the following is NOT a way?",
+        choices:  ['For Loop', 'Do Not Loop', 'While Loop', 'For...Of or In Loop'],
+        correctAnswer: "Do Not Loop"
     },
     {
-        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
-        correctAnswer: "console.log"
+        question: "In JavaScript, which are three keywords used to declare variables?",
+        choices:  ['var, let, This', 'let, array, const', 'var, const, let', 'let, const, This'],
+        correctAnswer: "var, const, let"
     },
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
@@ -120,22 +120,17 @@ function showCurrentQuestion() {
     questionsContainer.appendChild(questionElement);
 };
 
-// function resetQuiz () {
-//     score = 0;
-//     currentQuestionIndex = 0;
-//     getResult.style.display = "none";
-// }
-
 // create endQuiz() function
 function endQuiz() {
     clearInterval(intervalId);
     quizContainer.style.display = "none";
     scoreContainer.style.display = "block";
-    scoreContainer.innerHTML = "Game Over! You scored " + (score + currentTime) +  ".";
+    scoreContainer.document = "Game Over! You scored " + (score + currentTime) +  ".";
 
     // get user's initials
     const initialsInput = document.getElementById("initials");
     const initials = initialsInput.value;
+
 
     // store score and initials in local storage
     const highscores = JSON.parse(localStorage.getItem('highscores')) || [];

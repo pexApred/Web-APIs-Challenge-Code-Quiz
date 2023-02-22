@@ -9,9 +9,9 @@
     padding: 1%;
 }
 
-/* #hs {
-    
-} */
+ .highscore-pg {
+    display: none;
+} 
 
 .container {
     display: block;
