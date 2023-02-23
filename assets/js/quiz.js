@@ -4,6 +4,7 @@ var quizContainer = document.getElementById("quiz");
 var scoreContainer = document.querySelector(".highscore-pg");
 var startPage = document.querySelector(".start-pg");
 var timer = document.querySelector(".time");
+var hsLabel = document.querySelector("#hs-label");
 
 var timeLeft = document.querySelector("#timer");
 
@@ -168,6 +169,7 @@ function viewHighScores() {
     timer.style.display = "none";
     scoreContainer.style.display = "none";
     quizContainer.style.display = "none";
+    hsLabel.style.display = "block";
 
     const hsList = document.getElementById('hs-list');
     hsList.innerHTML = "";

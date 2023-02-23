@@ -2,7 +2,14 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#hs-label {
+    display: none;
+    text-align: center;
+}
+
 .answer-btn {
+    color: gold;
+    background-color: black;
     display: block;
     font-size: 32px;
     margin: 1%;
@@ -32,46 +39,61 @@
 #start-button {
     padding: .5em;
     font-size: larger;
-    background-color: aquamarine;
+    color: gold;
+    background-color: black;
 }
 
 button {
-    border-radius: 25%;
+    border-style: solid;
+    border-radius: 20px;
+    
 }
 
 button:hover {
-   
+   opacity: 0.75;
 }
 
-/* button {
-    background-color: aquamarine;
-} */
+.questions {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+}
 
 #view-hs {
     padding: .5em;
     font-size: x-large;
     margin-top: 1em;
-    background-color: aquamarine;
+    color: gold;
+    background-color: black;
 }
 
 #hs-div {
-    display: inline-block;
+    display: block;
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .back-btn {
+    margin-top: 2%;
+    margin-left: 6%;
     background-color: darkred;
     color: white;
+}
+
+li {
+    list-style: none;
+    text-align: center;
 }
 
 .start-pg {
     display: block;
     font-size: larger;
+    width: 50%;
 }
 
 .hs-list {
-    display: flex;
-    justify-content: center;
+    display: block;
+    
 }
 
 .questions {
