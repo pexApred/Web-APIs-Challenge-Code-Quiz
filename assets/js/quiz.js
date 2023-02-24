@@ -94,32 +94,29 @@ function showCurrentQuestion() {
     questionElement.innerHTML = currentQuestion.question;
 
     const currentChoices = currentQuestion.choices;
-    const resultEl = document.createElement("div");
-    questionsContainer.appendChild(resultEl);
+    const resultEl = document.getElementById('results');
+
     // create for loops for questions and answers
     for (let i = 0; i < currentChoices.length; i++) {
         const choiceElement = document.createElement("button");
         choiceElement.classList.add("answer-btn");
         choiceElement.textContent = ( i + 1 ) + ". " + currentChoices[i];
         questionElement.appendChild(choiceElement);
-
         choiceElement.addEventListener("click", function() {
-            const resultText = document.createElement("p");
             if (currentChoices[i] === currentQuestion.correctAnswer) {
                 score++;
-                resultText.textContent = "Correct!";
+                resultEl.textContent = "Correct!";
             } else if (currentTime >= 10) {
                 currentTime -= 10; // penalty for incorrect answer
-                resultText.textContent = "Wrong!";
+                resultEl.textContent = "Wrong!";
             } else {
                 currentTime = 0; // set to 0 if penalty would make it negative
-                }
-            console.log(resultText);
+            }
             console.log(resultEl);
-            resultEl.appendChild(resultText);
-                
             timeLeft.textContent = currentTime;
 
+            quizContainer.appendChild(resultEl);
+            
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
                 // display next question if there are more questions
@@ -130,7 +127,6 @@ function showCurrentQuestion() {
     }
     questionsContainer.appendChild(questionElement);
 };
-
 // create endQuiz() function
 function endQuiz() {
     clearInterval(intervalId);
