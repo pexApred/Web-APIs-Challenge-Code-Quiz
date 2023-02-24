@@ -5,7 +5,6 @@ var scoreContainer = document.querySelector(".highscore-pg");
 var startPage = document.querySelector(".start-pg");
 var timer = document.querySelector(".time");
 var hsLabel = document.querySelector("#hs-label");
-
 var timeLeft = document.querySelector("#timer");
 
 var intervalId;
@@ -66,6 +65,7 @@ viewHs.addEventListener('click', viewHighScores);
 startButton.addEventListener("click", function() {
     startPage.style.display ="none";
     quizContainer.style.display ="block";
+    viewHs.style.display = "none";
     showCurrentQuestion();
 
     intervalId = setInterval(startTimer, 1000);
@@ -170,14 +170,7 @@ function viewHighScores() {
     const hsList = document.getElementById('hs-list');
     hsList.innerHTML = "";
     
-    const backButton = document.createElement('button');
-    backButton.classList.add("back-btn");
-    backButton.textContent = "Back to Start";
-    hsList.appendChild(backButton);
-
-    backButton.addEventListener("click", function() {
-        resetQuiz();
-    });
+    
 
     const highScores = JSON.parse(localStorage.getItem('High Scores')) || [];
 
@@ -186,6 +179,14 @@ function viewHighScores() {
         const li = document.createElement("li");
         li.textContent = score.initials + "  -  " + score.score;
         hsList.appendChild(li);
+    });
+    const backButton = document.createElement('button');
+    backButton.classList.add("back-btn");
+    backButton.textContent = "Back to Start";
+    hsList.appendChild(backButton);
+
+    backButton.addEventListener("click", function() {
+        resetQuiz();
     });
 }
 

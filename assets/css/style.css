@@ -1,5 +1,5 @@
 * {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #hs-label {
@@ -12,8 +12,7 @@
     background-color: black;
     display: block;
     font-size: 32px;
-    margin: 1%;
-    padding: 1%;
+    margin-bottom: 2%;
 }
 
 .highscore-pg {
@@ -37,7 +36,6 @@
 }
 
 #start-button {
-    padding: .5em;
     font-size: larger;
     color: gold;
     background-color: black;
@@ -56,11 +54,9 @@ button:hover {
 .questions {
     display: flex;
     justify-content: center;
-    width: 75%;
 }
 
 #view-hs {
-    padding: .5em;
     font-size: x-large;
     margin-top: 1em;
     color: gold;
@@ -70,12 +66,15 @@ button:hover {
 #hs-div {
     display: block;
     justify-content: space-evenly;
+    margin:0;
     width: 100%;
 }
 
 .back-btn {
-    margin-left: 47%;
-    margin-bottom: 2%;
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    margin-top: 2%;
     background-color: darkred;
     color: white;
 }
@@ -91,9 +90,9 @@ li {
     width: 50%;
 }
 
-.hs-list {
-    display: block;
-    
+#hs-list {
+    width: 100%;
+    text-align: center;
 }
 
 .questions {
@@ -109,3 +108,7 @@ li {
     font-size: xx-large;
 }
 
+#results {
+    border-top-style: solid;
+    padding-top: 2%;
+}
