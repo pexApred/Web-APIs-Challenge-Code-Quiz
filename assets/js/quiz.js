@@ -169,8 +169,6 @@ function viewHighScores() {
 
     const hsList = document.getElementById('hs-list');
     hsList.innerHTML = "";
-    
-    
 
     const highScores = JSON.parse(localStorage.getItem('High Scores')) || [];
 
